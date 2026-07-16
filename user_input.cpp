@@ -10,6 +10,13 @@ int main () {
     area = 3.14 * x * x;
     cout<< "Area of circle is: " << area << endl;
 
+    // TypeCasting 
+
+    int a = 10;
+    float b = (float)a; // TypeCasting from int to float
+    cout<< "Value of a is: " << a << endl;
+    cout<< "Value of b is: " << b << endl;
+
 
     return 0;
 }
