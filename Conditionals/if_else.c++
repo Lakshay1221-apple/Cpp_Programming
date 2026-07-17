@@ -27,6 +27,33 @@ int main () {
         printf("The second number is greater\n");
     }
 
+    if ( a < 0 ){
+        a = -a;
+        cout << "The absolute value of the first number is: " << a << endl;
+    } else {
+        cout << "The number is already positive: " << a << endl;
+    }
 
+    // Nested if - if statements inside another if statement
+     
+    int x , y , z ;
+    printf("Enter three numbers: ");
+    cin >> x >> y >> z;
+
+    if (x > y) {
+        if (x > z) {
+            cout << "The first number is the greatest" << endl;
+        } else {
+                 cout << "The third number is the greatest" << endl;
+        }
+    } else {
+        if (y > z) {
+            cout << "The second number is the greatest" << endl;
+        } else {
+            cout << "The third number is the greatest" << endl;
+        }
+    }
+
+    
     return 0;
 }
