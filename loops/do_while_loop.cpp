@@ -12,6 +12,20 @@ int main () {
         num++;
     } while(num <= 10);
 
+    printf("Enter a numbers to get the sum of all : ");
+    int n , 
+    sum = 0;
+    cin >> n;
+
+    while (n != 0){
+        int ld = n % 10;
+        n /= 10;
+        sum += ld;
+    }
+    cout << "The sum of all digits is : " << sum << endl;
+
+
+
     return 0;
 
 }
