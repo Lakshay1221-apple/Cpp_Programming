@@ -12,10 +12,10 @@ int main () {
     }
 
     for (int i = 1 ;  i <= 5 ; i++){ // this loop is for rows        
-        for (int j = 1 ; j <= 3 ; j++){ // this loop is for columns
+        for (int j = 1 ; j <=  5 - i + 1 ; j++){ // this loop is for columns
             cout << (char)(j + 64); // prints column numbers as letters
         }
-        
+        cout << endl;
     }
 
     return 0;
