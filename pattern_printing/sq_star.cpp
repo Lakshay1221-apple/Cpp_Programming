@@ -17,5 +17,13 @@ int main () {
         cout << endl;
     }
 
+     for (int i = 1 ;  i <= 5 ; i++){ // this loop is for rows        
+        for (int j = 1 ; j <= i ; j++){ // this loop is for columns
+            cout << "*";
+        }
+        cout << endl;
+        
+    }
+
     return 0;
 }
