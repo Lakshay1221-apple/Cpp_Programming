@@ -40,7 +40,12 @@ int main() {
 
     x = 15 ;
 
-    cout << "After again updating the value of x: " << x << endl;    
+    cout << "After again updating the value of x: " << x << endl;   
+    
+    string str ;
+    printf("Enter your name: ");
+    getline(cin, str); // getline() function is used to read a line of text from the input stream
+    cout << "My name is " << str << endl;
 
     return 0;
 
