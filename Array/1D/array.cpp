@@ -81,11 +81,30 @@ int main() {
             cout << array[i] << " ";
         }
     }
-
+o
 
     cout << "\nNumber of even elements: " << even_count << endl;
 
+    // right shift of array elements, user input inserted in the first position and all element shifted to n + 1 position without removing the last element
+
+    int new_element;
+    cout << "Enter the new element to be inserted at the first position: ";
+    cin >> new_element;
+
+    // Shift elements one step to the right
+    for (int i = n; i > 0; i--) {
+        array[i] = array[i - 1]; // Shift elements to the right
+    }
+
+    // Insert at first position
+    array[0] = new_element;
+
+    cout << "\nArray after insertion at the first position: ";
+    for (int i = 0; i <= n; i++) {
+        cout << array[i] << " ";
+    }
+
     return 0;
 
-}
+
    
