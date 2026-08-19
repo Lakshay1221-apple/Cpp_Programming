@@ -104,6 +104,55 @@ o
         cout << array[i] << " ";
     }
 
+
+    // Insertion of the element in the last of the array 
+
+    int last_element;
+    cout << "\nEnter the new element to be inserted at the last position: ";
+    cin >> last_element;    
+
+    // left shift array elements 
+
+    for (int i = 0; i < n; i++) {
+        array[i] = array[i + 1]; // Shift elements to the left
+    }
+
+    // Insert at last position
+    array[n] = last_element;
+
+    cout << "\nArray after insertion at the last position: ";
+    for (int i = 0; i <= n; i++) {
+        cout << array[i] << " ";
+    }
+
+    // Inserting the element at the specific position in the array
+
+    int position, specific_element;
+    cout << "\nEnter the position where you want to insert the new element: ";
+    cin >> position;
+
+    cout << "Enter the new element to be inserted at position " << position << ": ";
+    cin >> specific_element;   
+    
+    // Shift elements to the right from the specified position
+    for (int i = n; i >= position; i--) {
+        array[i] = array[i - 1]; // Shift elements to the right
+    }
+
+    // Insert at the specified position
+    array[position - 1] = specific_element; 
+
+    cout << "\nArray after insertion at position " << position << ": ";
+    for (int i = 0; i <= n; i++) {
+        cout << array[i] << " ";
+    }
+
+
+     
+
+
+
+
     return 0;
 
 
