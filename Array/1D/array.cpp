@@ -1,159 +1,201 @@
 #include <iostream>
+#include <climits> // Included for INT_MIN
 using namespace std;
- 
-int main() {
 
+int main() {
+    // 1. Initialize an array with a maximum capacity to safely allow insertions
+    const int MAX_CAPACITY = 100;
+    int array[MAX_CAPACITY];
     int n;
-    cout << "Enter the size of the array:" << endl;
+
+    cout << "Enter the initial size of the array (max 100): ";
     cin >> n;
 
-    int array[n];
+    // Boundary check
+    if (n > MAX_CAPACITY || n <= 0) {
+        cout << "Invalid size." << endl;
+        return -1;
+    }
 
-    cout << "Enter array elements: ";
-
-    // for (int i = 0; i < n; i++){
-    //     cin >> array[i];
-    // }
-
-    int i = 1;
-    while (i <= n) {
+    // 2. Read array elements (using 0-based indexing)
+    cout << "Enter " << n << " array elements: ";
+    int i = 0;
+    while (i < n) {
         cin >> array[i];
         i++; 
     }
     
-    for (i = 1 ; i <= n; i++) {
-        cout << array[i] << " " << endl;
+    // Print original array
+    cout << "\nOriginal Array: ";
+    for (int j = 0; j < n; j++) {
+        cout << array[j] << " ";
     }
+    cout << endl;
 
+    // 3. Sum of array elements
     int sum = 0;
-
-    for (i = 1 ; i <= n; i++) {
-        sum += array[i];
+    for (int j = 0; j < n; j++) {
+        sum += array[j];
     }
-
     cout << "Sum of array elements: " << sum << endl;
 
-    int max = array[0];
+    // 4. Find the Maximum and Minimum elements
+    int max_val = array[0];
+    int min_val = array[0];
 
-    for (i = 1 ; i <= n; i++) {
-        if (array[i] > max) {
-            max = array[i];
+    for (int j = 1; j < n; j++) {
+        if (array[j] > max_val) {
+            max_val = array[j];
+        }
+        if (array[j] < min_val) {
+            min_val = array[j];
         }
     }
+    cout << "The maximum element is: " << max_val << endl; 
+    cout << "The minimum element is: " << min_val << endl;
 
-    cout << "The maximum element in the array is: " << max << endl; 
-
-    int second_max = array[0];
-
-    for (int i = 1; i <= n; i++) {
-        if (array[i] > second_max && array[i] < max) {
-            second_max = array[i];
+    // 5. Find the Second Maximum element
+    int second_max = INT_MIN; // Use minimum possible integer as initial fallback
+    for (int j = 0; j < n; j++) {
+        if (array[j] > second_max && array[j] < max_val) {
+            second_max = array[j];
         }
     }
-
-    cout << "The second maximum element in the array is: " << second_max << endl;
-
-    int min = array[0];
-    
-    for (i = 1 ; i <= n; i++) {
-        if (array[i] < min) {
-            min = array[i];
-        }
+    if (second_max == INT_MIN) {
+        cout << "No second maximum element exists (all elements might be equal)." << endl;
+    } else {
+        cout << "The second maximum element is: " << second_max << endl;
     }
 
-    int odd_count =0;
-
-
-    for (int i = 1; i <= n ; i++){
-        if ( array[i] % 2 != 0){
+    // 6. Count and print Odd elements
+    int odd_count = 0;
+    cout << "\nOdd elements: ";
+    for (int j = 0; j < n; j++) {
+        if (array[j] % 2 != 0) {
             odd_count++;
-        }
-            cout << array[i] << " ";
+            cout << array[j] << " ";
         }
     }
-
     cout << "\nNumber of odd elements: " << odd_count << endl;
-    int even_count = 0;
 
-     for (int i = 1; i <= n ; i++){
-        if ( array[i] % 2 == 0){
+    // 7. Count and print Even elements
+    int even_count = 0;
+    cout << "Even elements: ";
+    for (int j = 0; j < n; j++) {
+        if (array[j] % 2 == 0) {
             even_count++;
-            cout << array[i] << " ";
+            cout << array[j] << " ";
         }
     }
-o
-
     cout << "\nNumber of even elements: " << even_count << endl;
 
-    // right shift of array elements, user input inserted in the first position and all element shifted to n + 1 position without removing the last element
-
+    // 8. Insert element at the FIRST position (Right Shift)
     int new_element;
-    cout << "Enter the new element to be inserted at the first position: ";
+    cout << "\nEnter new element to insert at the first position: ";
     cin >> new_element;
 
-    // Shift elements one step to the right
-    for (int i = n; i > 0; i--) {
-        array[i] = array[i - 1]; // Shift elements to the right
+    for (int j = n; j > 0; j--) {
+        array[j] = array[j - 1]; // Shift right
     }
-
-    // Insert at first position
     array[0] = new_element;
+    n++; // Increment array size
 
-    cout << "\nArray after insertion at the first position: ";
-    for (int i = 0; i <= n; i++) {
-        cout << array[i] << " ";
+    cout << "Array after inserting at first position: ";
+    for (int j = 0; j < n; j++) {
+        cout << array[j] << " ";
     }
+    cout << endl;
 
-
-    // Insertion of the element in the last of the array 
-
+    // 9. Insert element at the LAST position
     int last_element;
-    cout << "\nEnter the new element to be inserted at the last position: ";
+    cout << "\nEnter new element to insert at the last position: ";
     cin >> last_element;    
 
-    // left shift array elements 
+    array[n] = last_element; // Simply place at the end
+    n++; // Increment array size
 
-    for (int i = 0; i < n; i++) {
-        array[i] = array[i + 1]; // Shift elements to the left
+    cout << "Array after inserting at last position: ";
+    for (int j = 0; j < n; j++) {
+        cout << array[j] << " ";
     }
+    cout << endl;
 
-    // Insert at last position
-    array[n] = last_element;
-
-    cout << "\nArray after insertion at the last position: ";
-    for (int i = 0; i <= n; i++) {
-        cout << array[i] << " ";
-    }
-
-    // Inserting the element at the specific position in the array
-
+    // 10. Insert element at a SPECIFIC position (1-based index provided by user)
     int position, specific_element;
-    cout << "\nEnter the position where you want to insert the new element: ";
+    cout << "\nEnter position (1 to " << n + 1 << ") to insert new element: ";
     cin >> position;
-
-    cout << "Enter the new element to be inserted at position " << position << ": ";
+    cout << "Enter the new element for position " << position << ": ";
     cin >> specific_element;   
     
     // Shift elements to the right from the specified position
-    for (int i = n; i >= position; i--) {
-        array[i] = array[i - 1]; // Shift elements to the right
+    for (int j = n; j >= position; j--) {
+        array[j] = array[j - 1]; 
+    }
+    array[position - 1] = specific_element; // Insert at 0-based index
+    n++; // Increment array size
+
+    cout << "Array after insertion at position " << position << ": ";
+    for (int j = 0; j < n; j++) {
+        cout << array[j] << " ";
+    }
+    cout << endl;
+
+    // 11. Delete the FIRST element (Left Shift)
+    if (n > 0) {
+        int deleted = array[0];
+        for (int j = 0; j < n - 1; j++) {
+            array[j] = array[j + 1]; // Shift left
+        }
+        n--; // Decrement array size
+        
+        cout << "\nArray after deleting the first element (" << deleted << "): ";
+        for (int j = 0; j < n; j++) {
+            cout << array[j] << " ";
+        }
+        cout << endl;
     }
 
-    // Insert at the specified position
-    array[position - 1] = specific_element; 
+    // 12. Reverse an array from a specific 0-based position to the end
+    int reverse_start = 2; // Example: reverse starting from index 2
+    if (reverse_start < n) {
+        int left = reverse_start;
+        int right = n - 1;
+        
+        while (left < right) {
+            // Swap elements
+            int temp = array[left];
+            array[left] = array[right];
+            array[right] = temp;
+            
+            left++;
+            right--;
+        }
 
-    cout << "\nArray after insertion at position " << position << ": ";
-    for (int i = 0; i <= n; i++) {
-        cout << array[i] << " ";
+        cout << "\nArray after reversing from index " << reverse_start << " to the end: ";
+        for (int j = 0; j < n; j++) {
+            cout << array[j] << " ";
+        }
+        cout << endl;
     }
 
+    // removing duplicates from the array
+    int new_size = 0;
+    for (int j = 0; j < n; j++) {
+        bool is_duplicate = false;
+        for (int k = 0; k < new_size; k++) {
+            if (array[j] == array[k]) {
+                is_duplicate = true;
+                break;
+            }
+        }
+        if (!is_duplicate) {
+            array[new_size] = array[j];
+            new_size++;
+        }
+    }
 
-     
-
-
-
+    n = new_size; // Update the array size to the new size without duplicates
+    
 
     return 0;
-
-
-   
+}
