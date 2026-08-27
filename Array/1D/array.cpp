@@ -128,7 +128,7 @@ int main() {
     cin >> specific_element;   
     
     // Shift elements to the right from the specified position
-    for (int j = n; j >= position; j--) {
+    for (int j = n; j >= position; j--) { 
         array[j] = array[j - 1]; 
     }
     array[position - 1] = specific_element; // Insert at 0-based index
@@ -195,7 +195,87 @@ int main() {
     }
 
     n = new_size; // Update the array size to the new size without duplicates
-    
+
+    // Merging 2 arrays with conditions, merge only even values 
+    int array2[] = {2, 4, 6, 8, 10};
+    int n2 = sizeof(array2) / sizeof(array2[0]);
+    int merged_array[20]; // Assuming maximum size
+    int merged_size = 0;
+
+    for (int j = 0; j < n; j++) {
+        if (array[j] % 2 == 0) {
+            merged_array[merged_size] = array[j];
+            merged_size++;
+        }
+    }
+
+    for (int j = 0; j < n2; j++) {
+        if (array2[j] % 2 == 0) {
+            merged_array[merged_size] = array2[j];
+            merged_size++;
+        }
+    }
+
+    cout << "\nMerged array with only even values: ";
+    for (int j = 0; j < merged_size; j++) {
+        cout << merged_array[j] << " ";
+    }
+    cout << endl;
+
+    // Code for linear search 
+
+    int search_element = 5;
+    bool found = false;
+    for (int j = 0; j < n; j++) {
+        if (array[j] == search_element) {
+            cout << "\nElement " << search_element << " found at index " << j << endl;
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        cout << "\nElement " << search_element << " not found in the array." << endl;
+    }
+
+    // Code for the binary search 
+    int low = 0;
+    int high = n - 1;
+    bool found = false;
+
+    // Binary search with the help of while loop 
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (array[mid] == search_element) {
+            cout << "\nElement " << search_element << " found at index " << mid << endl;
+            found = true;
+            break;
+
+        } else if (array[mid] < search_element) {
+            low = mid + 1;
+
+        } else {
+            high = mid - 1;
+        }
+    }
+    if (!found) {
+        cout << "\nElement " << search_element << " not found in the array." << endl;
+    }
+
+    // Binary search with the help of recursion 
+
+    for (int j = 0; j < n - 1; j++) {
+        for (int k = 0; k < n - j - 1; k++) {
+            if (array[k] > array[k + 1]) {
+                int temp = array[k];
+                array[k] = array[k + 1];
+                array[k + 1] = temp;
+            }
+        }
+    }
+
+
 
     return 0;
 }
