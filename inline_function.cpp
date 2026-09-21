@@ -24,5 +24,6 @@ int main () {
     square s;
 
     cout << s.squaree(10) << endl;
+    cout << s.add(2, 10) << endl;
     return 0;
 }
