@@ -17,13 +17,8 @@ int main() {
     // Create an enum variable
     Day today = WEDNESDAY;
 
-    cout << "Numeric value of today: "
-         << today << endl;
-
-    // We can compare enum values
-    if (today == WEDNESDAY) {
-        cout << "Today is Wednesday";
-    }
+    cout << "Numeric value of today: "<< today << endl;
+       
     // we can also use a switch statement with enums
 
     switch (today) {

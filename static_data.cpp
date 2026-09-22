@@ -4,12 +4,10 @@ using namespace std;
 class Student {
 
 private:
-
     // Static variable is SHARED by all objects
     static int count;
 
 public:
-
     Student() {
         // Increase shared count whenever
         // a new Student object is created

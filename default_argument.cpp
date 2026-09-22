@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int add(int a , int b = 10);
+int add(int a , int b = 10); // function overloading with default argument 
 
 int add(int a , int b){
     return a  + b;

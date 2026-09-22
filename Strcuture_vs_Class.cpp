@@ -48,12 +48,8 @@ int main() {
     // -------- CLASS --------
     StudentClass s2;
 
-    // Direct access would NOT be allowed:
-    // s2.name = "Lakshay";  // ERROR
-    // s2.age = 20;          // ERROR
-
     // We access private data through public functions
-    s2.setData("Lakshay", 20);
+    s2.setData("Raj", 19);
 
     cout << "\nCLASS:" << endl;
     s2.display();
