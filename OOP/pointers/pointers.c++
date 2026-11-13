@@ -35,28 +35,46 @@ int add_multiply(int* a) {
     return 0;
 }
 
+int pointer_Arthematics(int*  a){
+
+    cout << "Initial address: " << a << ", value: " << *a << "\n";
+
+    a++;
+    cout << "After incrementing the pointer: " << a << ", value: " << *a << "\n";
+
+    a--;
+    cout << "After decrementing the pointer: " << a << ", value: " << *a << "\n";
+
+    a += 2;
+    cout << "After adding 2 to the pointer: " << a << ", value: " << *a << "\n";
+
+    return 0;
+}
 int main() {
-    int num = 10;
-    int* ptr = &num;
-    *ptr = 20;
+    // int num = 10;
+    // int* ptr = &num;
+    // *ptr = 20;
 
-    cout << ptr << endl;
-    cout << *ptr << endl;
+    // cout << ptr << endl;
+    // cout << *ptr << endl;
 
-    int a = 10;
-    int b = 30;
+    // int a = 10;
+    // int b = 30;
 
-    mySwap(&a, &b);
+    // mySwap(&a, &b);
 
-    int* x = &a;
-    int* y = &b;
+    // int* x = &a;
+    // int* y = &b;
 
-    computeStats(&a, &b);
-    add_multiply(&a);
+    int arr[] = {1, 2, 3, 4, 5};
+    pointer_Arthematics(arr);
 
-    int max = findMax(x, y);
-    cout << "The maximum value is: " << max << endl;
-    cout << "The value of a is: " << a << endl;
+    // computeStats(&a, &b);
+    // add_multiply(&a);
+
+    // int max = findMax(x, y);
+    // cout << "The maximum value is: " << max << endl;
+    // cout << "The value of a is: " << a << endl;
 
     return 0;
 }
