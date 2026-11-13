@@ -2,12 +2,21 @@
 using namespace std;
 
 class person{
+
+    private:
+        string gender = "male";
+
     public:
+
+        string getGender(){
+            return gender;
+        }
+
         string name;
         int age;
 
         void display(){
-            cout << "name: " << name << "age: " << age << endl;
+            cout << "name: " << name << "age: " << age << "gender" << gender << endl;
         }
 };
 class BaseballPLayer : virtual public person{
@@ -16,7 +25,7 @@ class BaseballPLayer : virtual public person{
         int batting_average;
 
     void display(){
-        cout << "name: " << name << "age: " << age << "team_name: " << team_name << "batting_average: " << batting_average << endl;
+        cout << "name: " << name << "age: " << age << "team_name: " << team_name << "batting_average: " << batting_average << "gender"<< getGender() << endl;
     }    
 };
 
