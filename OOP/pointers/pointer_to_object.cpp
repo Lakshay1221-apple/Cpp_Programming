@@ -22,6 +22,15 @@ int main() {
     (*ptr).display(); // here we are dereferencing the pointer to access the display method
 
     ptr->display(); // here we are using the arrow operator to access the display methodp
+
+    string  name = "Lakshay";
+    string* ptrr =  &name;
+
+    cout << "Name: " << name << endl;
+
+    cout << "Address of name: " << ptrr << endl;
+
+    cout << "Dereferenced value of name: " << *ptrr << endl; // dereferencing to get the first character
  
 
     return 0;
