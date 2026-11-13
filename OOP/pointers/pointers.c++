@@ -51,30 +51,21 @@ int pointer_Arthematics(int*  a){
     return 0;
 }
 int main() {
-    // int num = 10;
-    // int* ptr = &num;
-    // *ptr = 20;
 
-    // cout << ptr << endl;
-    // cout << *ptr << endl;
+    int num_1 = 5 ;
+    int num_2 = 10;
 
-    // int a = 10;
-    // int b = 30;
+    int* ptr_1 = &num_1;
 
-    // mySwap(&a, &b);
+    cout << "Value of num_1: " << *ptr_1 << endl;
+    cout << "Address of num_1: " << ptr_1 << endl;
+    cout << "Address of num_1 using & operator: " << &num_1 << endl;
 
-    // int* x = &a;
-    // int* y = &b;
+    cout << "The maximum value is: " << findMax(&num_1, &num_2) << endl;
 
-    int arr[] = {1, 2, 3, 4, 5};
-    pointer_Arthematics(arr);
 
-    // computeStats(&a, &b);
-    // add_multiply(&a);
-
-    // int max = findMax(x, y);
-    // cout << "The maximum value is: " << max << endl;
-    // cout << "The value of a is: " << a << endl;
-
+    cout << "Before swapping: num_1 = " << num_1 << ", num_2 = " << num_2 << endl;
+    mySwap(&num_1, &num_2); 
+    
     return 0;
 }

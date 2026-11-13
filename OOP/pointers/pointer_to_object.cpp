@@ -19,14 +19,10 @@ int main() {
 
     Employee* ptr = &emp1;
 
-    (*ptr).display();
-    ptr->display();
+    (*ptr).display(); // here we are dereferencing the pointer to access the display method
 
-    Employee* dynamicEmp = new Employee(102, 92000.0);
-    dynamicEmp->display();
-
-    delete dynamicEmp;
-    dynamicEmp = nullptr;
+    ptr->display(); // here we are using the arrow operator to access the display methodp
+ 
 
     return 0;
 }
